@@ -243,6 +243,54 @@ section{padding:96px 0}
 .about-text p strong{color:var(--text1);font-weight:600}
 
 /* =========================================================
+   PHILOSOPHY
+========================================================= */
+#philosophy{background:var(--bg0);position:relative;overflow:hidden}
+#philosophy::before{
+  content:'';position:absolute;top:-16%;right:-10%;width:46%;height:60%;
+  background:radial-gradient(circle,rgba(99,102,241,.12) 0%,transparent 68%);
+  pointer-events:none;
+}
+#philosophy::after{
+  content:'';position:absolute;bottom:-18%;left:-8%;width:34%;height:48%;
+  background:radial-gradient(circle,rgba(34,211,238,.08) 0%,transparent 72%);
+  pointer-events:none;
+}
+.philo-grid{position:relative;z-index:1;display:grid;grid-template-columns:.95fr 1.15fr;gap:2rem 2.25rem;align-items:start}
+.philo-intro p{color:var(--text2);font-size:.97rem;line-height:1.9;max-width:500px}
+.philo-quote{
+  margin-top:1.6rem;padding:1.35rem 1.4rem;border-radius:18px;
+  background:linear-gradient(180deg,rgba(99,102,241,.08),rgba(34,211,238,.04));
+  border:1px solid var(--accent-bdr);box-shadow:var(--shadow-sm);
+}
+[data-theme="light"] .philo-quote{background:linear-gradient(180deg,rgba(79,70,229,.06),rgba(8,145,178,.03))}
+.philo-qtop{display:flex;align-items:center;gap:10px;margin-bottom:.85rem}
+.philo-qicon{
+  width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:var(--accent-dim);color:var(--accent);font-size:1rem;flex-shrink:0;
+}
+.philo-qtitle{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text1)}
+.philo-quote p{color:var(--text2);font-size:.92rem;line-height:1.85}
+.philo-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:1rem}
+.philo-tag{
+  padding:4px 11px;border-radius:100px;font-size:.74rem;font-weight:600;
+  background:var(--surface);color:var(--text2);border:1px solid var(--border);
+}
+.philo-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.ph-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  padding:1.35rem;transition:all var(--t);min-height:100%;
+}
+.ph-card:hover{border-color:var(--accent-bdr);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.ph-num{font-family:'Fira Code',monospace;font-size:.76rem;font-weight:600;color:var(--accent);margin-bottom:.7rem}
+.ph-card h3{font-size:1rem;font-weight:700;color:var(--text1);margin-bottom:.55rem;letter-spacing:-.02em}
+.ph-card p{color:var(--text2);font-size:.9rem;line-height:1.82}
+.philo-close{
+  grid-column:1 / -1;background:var(--surface-hover);border:1px solid var(--border);
+  border-radius:16px;padding:1rem 1.1rem;font-size:.92rem;font-weight:600;color:var(--text1);
+}
+
+/* =========================================================
    EDUCATION
 ========================================================= */
 #education{
@@ -525,6 +573,8 @@ footer{background:var(--bg0);border-top:1px solid var(--border);padding:20px 0;t
 ========================================================= */
 @media(max-width:1024px){
   .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .philo-grid{grid-template-columns:1fr;gap:2.5rem}
+  .philo-intro p{max-width:none}
   .skills-grid{grid-template-columns:repeat(2,1fr)}
   .exp-body{grid-template-columns:1fr}
   .exp-col+.exp-col{border-left:none;border-top:1px solid var(--border)}
@@ -545,6 +595,7 @@ footer{background:var(--bg0);border-top:1px solid var(--border);padding:20px 0;t
   .hero-desc{max-width:100%}
   .cta-row{justify-content:center}
   .hero-stats{justify-content:center;gap:1.5rem}
+  .philo-cards{grid-template-columns:1fr}
   /* Projects */
   .proj-grid{grid-template-columns:1fr}
   /* Logo strip */
@@ -629,6 +680,7 @@ footer{background:var(--bg0);border-top:1px solid var(--border);padding:20px 0;t
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -708,7 +760,62 @@ footer{background:var(--bg0);border-top:1px solid var(--border);padding:20px 0;t
         <p>I'm a Data Engineer who builds reliable, scalable data systems — and increasingly, <strong>AI-powered ones</strong>. At Honeywell, I engineer transformation logic across a Snowflake Enterprise Data Warehouse spanning 9,000+ objects, manage government-scale datasets under strict compliance, and coordinate offshore teams to deliver against tight deadlines. My stack spans <strong>Snowflake, Informatica, Control-M, SQL Server, and Python</strong>.</p>
         <p>What sets me apart is how I'm <strong>bridging traditional data engineering with AI</strong>. I led an initiative to automate column-level lineage across our entire EDW using Snowflake's native LLM functions and Claude Opus — achieving 80% accuracy on a task that would have taken months manually. I've prototyped internal data catalog tooling in React, and I'm currently designing a semantic layer and metadata governance framework for the enterprise warehouse. <a href="Files/column_lineage_portfolio.html" target="_blank" style="color:var(--accent);font-weight:600;text-decoration:none;border-bottom:1px solid var(--accent-bdr);padding-bottom:1px;transition:border-color 0.2s">Read the technical deep dive →</a></p>
         <p>My approach starts with <strong>the meaning behind the data</strong>, not just the mechanics of moving it. I care deeply about structure, documentation, and building solutions that others can understand, maintain, and trust. Whether it's enterprise pipelines or autonomous AI systems, the standard is the same: precision combined with thoughtful communication.</p>
-        <p>Outside of work, I'm building a <strong>multi-agent orchestration platform</strong> using OpenClaw and OpenAI Codex — a system where an orchestrator assigns tasks to specialized AI agents (developer, QA, research council) that autonomously build, test, and debate features, then notify me for human-in-the-loop validation. It's targeted at the mental health therapy space as a SaaS product.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PHILOSOPHY ===================== -->
+<section id="philosophy">
+  <div class="container">
+    <div class="philo-grid">
+      <div class="philo-intro reveal">
+        <p class="eyebrow">AI Philosophy</p>
+        <h2 class="sec-title">AI is most powerful when it is orchestrated, not merely queried.</h2>
+        <div class="sec-rule"></div>
+        <p>We are entering a world where the people who know how to use AI well will have outsized leverage. Most people, including highly capable engineers, still use it like a search engine: ask a question, get an answer, move on. What interests me is what happens when you architect the system around the model instead.</p>
+
+        <div class="philo-quote reveal d2">
+          <div class="philo-qtop">
+            <div class="philo-qicon"><i class="bi bi-music-note-beamed"></i></div>
+            <div class="philo-qtitle">The Piano Analogy</div>
+          </div>
+          <p>A Steinway is one of the finest instruments in the world, but if you hand it to someone who has never played, it's just expensive wood. AI is similar. The models are extraordinary. The rare skill is knowing how to actually play them: compose tasks, enforce guardrails, route between models, and turn raw capability into reliable outcomes.</p>
+          <div class="philo-tags">
+            <span class="philo-tag">Agents</span>
+            <span class="philo-tag">Guardrails</span>
+            <span class="philo-tag">Model Routing</span>
+            <span class="philo-tag">Human Validation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="philo-cards">
+        <article class="ph-card reveal d1">
+          <div class="ph-num">01</div>
+          <h3>AI Is Leverage</h3>
+          <p>I believe effective AI use massively expands individual potential. Clear intent, structural thinking, and precise prompting now let small teams build systems that would have taken much larger teams years ago.</p>
+        </article>
+
+        <article class="ph-card reveal d2">
+          <div class="ph-num">02</div>
+          <h3>Orchestration Matters</h3>
+          <p>In my personal time, I built and am actively upgrading an autonomous multi-agent development platform from scratch: an orchestrator, a lead engineer, and a QA reviewer working through a DEV → QA → PROD pipeline with human-in-the-loop validation gates. I'm interested in repeatable systems, not chatbot demos.</p>
+        </article>
+
+        <article class="ph-card reveal d3">
+          <div class="ph-num">03</div>
+          <h3>Data Engineering Prepared Me For This</h3>
+          <p>My background is in data engineering rather than classical software engineering, so my edge is not just language-level fluency. It is workflow architecture, optimization, data integrity, and systems thinking at scale. Managing 9,000+ objects across a 7-layer transformation pipeline serving 100,000+ employees taught me how to make high-stakes systems dependable.</p>
+        </article>
+
+        <article class="ph-card reveal d4">
+          <div class="ph-num">04</div>
+          <h3>This Is the Craft I Chase</h3>
+          <p>This is not casual curiosity for me. I think about agent architecture on my commute, spend free time refining workflows and harnesses, and follow AI, prompt engineering, and orchestration relentlessly. It has even replaced most of the time I used to spend on video games because building these systems is simply more interesting to me now.</p>
+        </article>
+
+        <div class="philo-close reveal d5">I'm not drawn to AI as hype. I'm drawn to it as a new engineering medium, and I want to be exceptionally good at wielding it.</div>
       </div>
     </div>
   </div>
@@ -1099,11 +1206,13 @@ const PROJ = [
       'Files/AI_Project_Screenshot/20260325_Memory.jpg',
     ],
     bullets:[
-      'Engineered a DEV → QA → PROD promotion pipeline where the lead engineer agent builds continuously in DEV, the QA agent reviews at meaningful milestones, and promotion requests are surfaced automatically via Telegram/Discord for human validation — modeling enterprise-grade release management within an autonomous AI system.',
-      'Designed and built a multi-agent orchestration system using OpenClaw and OpenAI Codex, featuring a task-assigning orchestrator, lead developer agent, QA validation agent, and a 5-agent research council that autonomously debates feature decisions. Replacing chat-driven AI interactions with program-driven execution, staged milestone reviews, and human-in-the-loop approval gates.',
-      'Engineering an end-to-end autonomous development workflow where detailed project specifications are parsed by the orchestrator, decomposed into phased tasks, distributed to specialized agents, and deliver milestone notifications for human-in-the-loop validation.',
-      'Building "Command Center," a control and observability layer (HTML/CSS/JS) that provides real-time visibility into agent task queues, approval workflows, activity logs, and team assignments — serving as the primary interface for managing and monitoring autonomous development operations.',
-      'Integrated Ollama for cost-efficient local memory and context management, reducing API costs while maintaining agent coherence across long-running development sessions targeting a SaaS product for the mental health therapy space.',
+      'Designed and iterated on a personal multi-agent AI workflow in OpenClaw, defining separate planner, builder, and reviewer roles to improve handoffs, accountability, and quality control.',
+      'Built a file-first execution state layer for tasks, checkpoints, reviews, approvals, and daily memory so agent work could resume across terminal, cron, Telegram, and Discord instead of depending on chat context alone.',
+      'Implemented reliability features for long-running agent work, including checkpoints, sanity-check artifacts, task leases and heartbeats, stale-task detection, and bounded background worker sessions.',
+      'Integrated Supabase as a searchable mirror and dashboard/query layer for logs, journal history, and archive text while keeping local state files as the canonical source of truth.',
+      'Rebuilt an internal operations dashboard in Next.js with dark/light theme support and live views for tasks, approvals, activity, run state, memory, and team roles using real system data instead of mock data.',
+      'Wrote runbooks and review checklists to standardize how agents analyze references, plan UI work, verify builds, and perform human-sanity review before marking work complete.',
+      'Improved local runtime safety by moving secrets out of plaintext config into environment-backed setup and documenting cutover and recovery steps.',
     ],
     links:[]
   },
